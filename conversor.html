@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Moeda</title>
+</head>
+<body>
+    <h1>Conversor de Moeda</h1>
+    <form method="POST">
+        <label for="moeda_de">Converter de:</label>
+        <select id="moeda_de" name="moeda_de">
+            {% for moeda in moedas_conhecidas %}
+                <option value="{{ moeda }}">{{ moeda }} ({{ moedas_conhecidas[moeda] }})</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="moeda_para">Converter para:</label>
+        <select id="moeda_para" name="moeda_para">
+            {% for moeda in moedas_conhecidas %}
+                <option value="{{ moeda }}">{{ moeda }} ({{ moedas_conhecidas[moeda] }})</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="valor_origem">Digite o valor de origem:</label>
+        <input type="text" id="valor_origem" name="valor_origem" required>
+        <input type="submit" value="Converter">
+    </form>
+</body>
+</html>
