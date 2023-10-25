@@ -18,7 +18,8 @@ def conversor_moeda():
         moeda_de = request.form['moeda_de']
         moeda_para = request.form['moeda_para']
         valor_origem = float(request.form['valor_origem'])
-
+        taxa_de_cambio = 0.19  # Taxa de câmbio fixa (1 real = 0,19 dólar)
+        valor_convertido = valor_origem * taxa_de_cambio
         # Implemente a conversão de moedas aqui
 
         return render_template('resultado.html', moeda_de=moeda_de, moeda_para=moeda_para, valor_origem=valor_origem, valor_convertido=valor_convertido)
