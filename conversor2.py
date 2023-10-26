@@ -20,7 +20,7 @@ def conversor_moeda():
         moeda_de = request.form['moeda_de']
         moeda_para = request.form['moeda_para']
         valor_origem = float(request.form['valor_origem'])
-        taxa_de_cambio = c.convert(1, 'BRL', 'USD')
+        taxa_de_cambio = c.convert(1, moeda_de, moeda_para)
         valor_convertido = valor_origem * taxa_de_cambio
         # Implemente a conversão de moedas aqui
 
