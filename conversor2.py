@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template
+from currency_converter import CurrencyConverter
 
 app = Flask(__name__, template_folder="templates")
+c = CurrencyConverter()
 
 # Lista manual de moedas conhecidas
 moedas_conhecidas = {
@@ -18,7 +20,7 @@ def conversor_moeda():
         moeda_de = request.form['moeda_de']
         moeda_para = request.form['moeda_para']
         valor_origem = float(request.form['valor_origem'])
-        taxa_de_cambio = 0.19  # Taxa de câmbio fixa (1 real = 0,19 dólar)
+        taxa_de_cambio = c.convert(1, 'BRL', 'USD')
         valor_convertido = valor_origem * taxa_de_cambio
         # Implemente a conversão de moedas aqui
 
