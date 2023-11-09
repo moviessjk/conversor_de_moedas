@@ -22,8 +22,7 @@ def conversor_moeda():
         valor_origem = float(request.form['valor_origem'])
         taxa_de_cambio = c.convert(1, moeda_de, moeda_para)
         valor_convertido = valor_origem * taxa_de_cambio
-        # Implemente a conversão de moedas aqui
-
+        
         return render_template('resultado.html', moeda_de=moeda_de, moeda_para=moeda_para, valor_origem=valor_origem, valor_convertido=valor_convertido)
 
     return render_template('conversor.html', moedas_conhecidas=moedas_conhecidas)
